@@ -14,6 +14,7 @@
 
 #include "examples/blink.hpp"
 #include "pico/stdlib.h"
+#include "version.hpp"
 
 int main() {
   stdio_init_all();
