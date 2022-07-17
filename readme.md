@@ -42,12 +42,20 @@ Easiest way to view output is with `minicom`.
 
 ```
 minicom -b 115200 -o -D /dev/ttyACM0
+
+# To quit
+# CTRL + SHIFT + A then release and press Z
+# q ENTER
 ```
 
 or with `screen`
 
 ```
 screen /dev/ttyACM0 115200
+
+# To quit
+# CTRL+a 
+# :quit ENTER
 ```
 
 **Note** Make sure you are in the `dialout` group (`sudo usermod -a -G dialout $USER`).
