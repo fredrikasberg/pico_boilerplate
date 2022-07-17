@@ -5,7 +5,7 @@
 
 enum BoardType: int { Pico, PicoWireless };
 static BoardType pico_board_type() {
-    return (std::string("@PICO_BOARD@").compare("pico")) ? Pico : PicoWireless;
+    return (std::string("@PICO_BOARD@") == "pico") ? Pico : PicoWireless;
 }
 
 #endif   // PICO_BP_BOARD_
