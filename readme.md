@@ -59,3 +59,11 @@ screen /dev/ttyACM0 115200
 ```
 
 **Note** Make sure you are in the `dialout` group (`sudo usermod -a -G dialout $USER`).
+
+
+## Resources
+
+* [RPI Pico SDK Manual](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
+* [RPI Pico SDK](https://github.com/raspberrypi/pico-sdk)
+* [RPI Pico Examples](https://github.com/raspberrypi/pico-examples)
+* [RPI Pico W Examples](https://github.com/raspberrypi/pico-examples/tree/master/pico_w)
