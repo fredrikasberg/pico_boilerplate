@@ -1,20 +1,5 @@
-/**
- *
- *        .~~.   .~~.
- *        '. \ ' ' / .'
- *         .~ .~~~..~.
- *        : .~.'~'.~. :
- *       ~ (   ) (   ) ~
- *      ( : '~'.~.'~' : )
- *       ~ .~ (   ) ~. ~
- *        (  : '~' :  ) Raspberry Pi Pico Boilerplate
- *         '~ .~~~. ~'
- *             '~'
- */
-
 #include "examples/blink.hpp"
 #include "pico/stdlib.h"
-#include "version.hpp"
 
 int main() {
   stdio_init_all();
@@ -23,5 +8,5 @@ int main() {
     return -1;
   }
 
-  examples::blink();
+  examples::blink(true);
 }

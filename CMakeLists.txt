@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.22)
 
 ## Project configuration
-set(PROJECT_NAME "pico-w_boilerplate")
-set(PROJECT_VERSION 0.0.1) # Available in header "version.hpp"
+set(PROJECT_NAME "pico-boilerplate")
+set(PROJECT_VERSION "0.0.1") # Available in header "version.hpp"
 set(PICO_BOARD "pico_w") # Available bords: pico or pico_w
+set(USE_STDIO_USB 1) # stdio output to usb uart
+set(USE_STDIO_UART 0) # stdio output to uart pins
+set(OUTPUT_NAME "output") # Output name of hex/elf/uf2 files
 
 ## Default setup
 set(${PROJECT_NAME}_ENTRYPOINT ${CMAKE_CURRENT_LIST_DIR}/main.cpp) # default entrypoint
@@ -28,4 +31,7 @@ target_link_libraries(${PROJECT_NAME} pico_stdlib)
 if (PICO_CYW43_SUPPORTED)
     target_link_libraries(${PROJECT_NAME} pico_cyw43_arch_none)
 endif ()
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${OUTPUT_NAME})
+pico_enable_stdio_usb(${PROJECT_NAME} ${USE_STDIO_USB})
+pico_enable_stdio_uart(${PROJECT_NAME} ${USE_STDIO_UART})
 pico_add_extra_outputs(${PROJECT_NAME})
