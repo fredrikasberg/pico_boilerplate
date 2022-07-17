@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.22)
 
 ## Project configuration
 set(PROJECT_NAME "pico-boilerplate")
-set(PROJECT_VERSION "0.0.1") # Available in header "version.hpp"
-set(PICO_BOARD "pico_w") # Available bords: pico or pico_w
-set(USE_STDIO_USB 1) # stdio output to usb uart
-set(USE_STDIO_UART 0) # stdio output to uart pins
-set(OUTPUT_NAME "output") # Output name of hex/elf/uf2 files
+set(PROJECT_VERSION "0.0.1")
+set(PICO_BOARD "pico_w")
+set(USE_STDIO_USB 1)
+set(USE_STDIO_UART 0)
+set(OUTPUT_NAME "output")
 
 ## Default setup
 set(${PROJECT_NAME}_ENTRYPOINT ${CMAKE_CURRENT_LIST_DIR}/main.cpp) # default entrypoint

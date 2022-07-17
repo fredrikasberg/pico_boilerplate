@@ -1,10 +1,8 @@
 # Raspberry Pi Pico Boilerplate
 
-Basic boilerplate for the Pico /-W
+Basic boilerplate for the Pico /-W boards.
 
-Configuration is done in CMakeLists.txt.
-
-Downloads Pico SDK from github on cmake generation.
+Downloads Pico SDK from [github.com](https://github.com/raspberrypi/pico-sdk) on cmake generation.
 
 ## Prerequisites
 
@@ -13,6 +11,19 @@ Assuming Ubuntu based os (Ubuntu, PopOS eg.)
 ```
 sudo apt install gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
 ```
+
+## Configuration
+
+Configuration is done in CMakeLists.txt.
+
+| Option          | Default  | Description                                                          |
+|-----------------|----------|----------------------------------------------------------------------|
+| PROJECT_NAME    | "pico"   | Project name                                                         |
+| PROJECT_VERSION | "0.0.1"  | Project version. Also available as generated header as "version.hpp" |
+| PICO_BOARD      | "pico_w" | Board to use. Available options are "pico" or "pico_w"               |
+| USE_STDIO_USB   | 1        | Use USB as stdio output                                              |
+| USE_STDIO_UART  | 0        | Use GPIO as stdio output                                             |
+| OUTPUT_NAME     | "output" | Default filename for all output files (hex/elf/uf2)                  |
 
 ## Building / Testing
 
@@ -24,3 +35,19 @@ cd build
 cmake ..
 make
 ```
+
+## UART/USB stdio output
+
+Easiest way to view output is with `minicom`.
+
+```
+minicom -b 115200 -o -D /dev/ttyACM0
+```
+
+or with `screen`
+
+```
+screen /dev/ttyACM0 115200
+```
+
+**Note** Make sure you are in the `dialout` group (`sudo usermod -a -G dialout $USER`).
