@@ -8,8 +8,10 @@ Downloads Pico SDK from [github.com](https://github.com/raspberrypi/pico-sdk) on
 
 Assuming Ubuntu based os (Ubuntu, PopOS eg.)
 
+Ninja is optional and standard make can be used as well.
+
 ```
-sudo apt install gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
+sudo apt install gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib ninja-build
 ```
 
 ## Configuration
@@ -27,14 +29,32 @@ Configuration is done in CMakeLists.txt.
 
 ## Building / Testing
 
+Download and create build directory
+
 ```
-git clone https://github.com/fredrikasberg/pico_boilerplate.git
-cd pico_boilderplate
+export PICO_PROJECT="boilerplate"
+git clone https://github.com/fredrikasberg/pico_boilerplate.git ${PICO_PROJECT}
+cd ${PICO_PROJECT}
 mkdir -p build
 cd build
+```
+
+and compile using Ninja
+
+```
+cmake -GNinja ..
+ninja
+```
+
+or using Make
+```
 cmake ..
 make
 ```
+
+You can now copy the default `output.uf2` binary to the pico. 
+
+The on-board led should be flashing and the usb serialport should be outputting data.
 
 ## UART/USB stdio output
 
@@ -59,7 +79,6 @@ screen /dev/ttyACM0 115200
 ```
 
 **Note** Make sure you are in the `dialout` group (`sudo usermod -a -G dialout $USER`).
-
 
 ## Resources
 
