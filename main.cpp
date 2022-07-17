@@ -12,8 +12,8 @@
  *             '~'
  */
 
+#include "examples/blink.hpp"
 #include "pico/stdlib.h"
-#include "pico/cyw43_arch.h"
 
 int main() {
   stdio_init_all();
@@ -21,4 +21,6 @@ int main() {
     printf("WiFi init failed");
     return -1;
   }
+
+  examples::blink();
 }
