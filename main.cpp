@@ -3,7 +3,7 @@
 
 int main() {
   stdio_init_all();
-#ifdef BP_WIFI
+#ifdef WIFI
   if (cyw43_arch_init()) {
     printf("WiFi init failed");
     return -1;

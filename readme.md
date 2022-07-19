@@ -22,10 +22,13 @@ Configuration is done in CMakeLists.txt.
 |-----------------|----------|----------------------------------------------------------------------|
 | PROJECT_NAME    | "pico"   | Project name                                                         |
 | PROJECT_VERSION | "0.0.1"  | Project version. Also available as generated header as "version.hpp" |
-| PICO_BOARD      | "pico_w" | Board to use. Available options are "pico" or "pico_w"               |
+| PICO_BOARD      | "pico_w" | Board to use. Available options are "pico" or "pico_w". 1)           |
 | USE_STDIO_USB   | 1        | Use USB as stdio output                                              |
 | USE_STDIO_UART  | 0        | Use GPIO as stdio output                                             |
 | OUTPUT_NAME     | "output" | Default filename for all output files (hex/elf/uf2)                  |
+
+1) The `PICO_BOARD` definition is forwarded as a c++ definition by default but instead of having to read the value you 
+can simply check if `WIFI` is set (if undef the board is the original Pico).
 
 ## Building / Testing
 

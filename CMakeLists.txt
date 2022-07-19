@@ -29,7 +29,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${${PROJECT_NAME}_INCLUDE_DIR
         ${CMAKE_CURRENT_BINARY_DIR}/_generated)
 target_link_libraries(${PROJECT_NAME} pico_stdlib)
 if (PICO_CYW43_SUPPORTED)
-    add_compile_definitions(BP_WIFI)
+    add_compile_definitions(WIFI)
     target_link_libraries(${PROJECT_NAME} pico_cyw43_arch_none)
 endif ()
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${OUTPUT_NAME})
