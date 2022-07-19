@@ -3,12 +3,12 @@
 
 int main() {
   stdio_init_all();
-  if (pico_board_type() == PicoWireless) {
-    if (cyw43_arch_init()) {
-      printf("WiFi init failed");
-      return -1;
-    }
+#ifdef BP_WIFI
+  if (cyw43_arch_init()) {
+    printf("WiFi init failed");
+    return -1;
   }
+#endif
 
   examples::blink(true);
 }
